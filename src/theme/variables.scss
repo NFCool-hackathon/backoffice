@@ -1,0 +1,32 @@
+
+:root {
+  /** Custom Drexter colors
+  poor attribute mean disabled
+  **/
+
+  --color-main: #04395E;
+  --color-main-darker: #031D44;
+
+  --color-bg-layer1: #C4BBAF;
+  --color-bg-layer2: #A5978B;
+
+  --color-soft-danger: #875053;
+
+  --color-danger-light: #faa7a7;
+  --color-danger: red;
+  --color-primary: #2222fc;
+  --color-success-light: #BFFFCA;
+  --color-success: #038904;
+  --color-warning-light: #fddca0;
+  --color-warning: orange;
+  --color-warning-dark: #c78001;
+
+  --header-height: 80px;
+  --footer-height: 250px;
+
+  @media only screen and (max-width: 850px) {
+    --header-height: 50px;
+  }
+
+}
+
