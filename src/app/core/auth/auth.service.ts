@@ -52,14 +52,13 @@ export class AuthService {
     this.ethereum.request({
       method: 'eth_requestAccounts',
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      params: [{eth_accounts: {}}]
+      params: [{ eth_accounts: {} }]
     }).then(() => {
       this.account = '';
       this.accountSubject.next(this.account);
       this.router.navigate(['/login']);
     });
   }
-
 
   private checkMetamask(): boolean {
     if (this.ethereum) {
