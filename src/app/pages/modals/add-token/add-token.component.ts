@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
+import {SnackbarService} from "../../../core/snackbar.service";
 
 @Component({
   selector: 'app-add-token',
@@ -8,9 +9,11 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class AddTokenComponent implements OnInit {
   file: any;
+  tokenName: string = '';
   loading: boolean = false;
 
-  constructor(public dialogRef: MatDialogRef<AddTokenComponent>) { }
+  constructor(public dialogRef: MatDialogRef<AddTokenComponent>,
+              private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
   }
@@ -30,5 +33,13 @@ export class AddTokenComponent implements OnInit {
 
   onFileDropped(file: any): void {
     this.file = file;
+  }
+
+  async createToken() {
+    if (!this.file || !this.tokenName) {
+      this.snackbar.openDanger('You need to fill all information');
+      console.error('You need to fill all information');
+    } else {
+    }
   }
 }

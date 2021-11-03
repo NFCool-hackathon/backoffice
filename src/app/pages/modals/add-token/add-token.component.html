@@ -1,3 +1,5 @@
+<input type="text" placeholder="Token name..." [(ngModel)]="tokenName" [disabled]="loading" class="input">
+<br>
 <div class="image-upload">
   <label for="image" *ngIf="!file?.name" appDropzone (fileDropped)="onFileDropped($event)">
     <div class="file-input-container clickable">
@@ -5,7 +7,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="25.6" height="25.6" viewBox="0 0 25.6 25.6">
           <path id="Icon" d="M24.621,13.667a.979.979,0,0,0,.979-.979V11.382c0-5.179-2.307-7.7-7.033-7.7H15.079a1.823,1.823,0,0,1-1.452-.709L12.5,1.475A3.825,3.825,0,0,0,9.475,0H7.022C2.363,0,0,2.691,0,8v9.6C0,22.538,3.061,25.6,8,25.6h9.587c4.929,0,8-3.062,8-7.993a.99.99,0,0,0-1.969,0c0,3.884-2.138,6.034-6.031,6.034h-9.6c-3.893,0-6.031-2.139-6.031-6.034v-.934H17.712a.979.979,0,0,0,0-1.959H1.958V7.959c0-4.233,1.508-6.045,5.052-6.045H9.486a1.879,1.879,0,0,1,1.452.72L12.063,4.12a3.792,3.792,0,0,0,3.016,1.509h3.477c3.657,0,5.075,1.632,5.075,5.753v1.306a.979.979,0,0,0,.99.979Z" fill="#0099f9"/>
         </svg>
-        <span>Déposez votre fichier</span>
+        <span>Drop your file</span>
       </div>
     </div>
   </label>
@@ -20,3 +22,5 @@
     <div class="icon-color-danger icon-svg-delete icon-size-medium clickable" (click)="deleteFile()"></div>
   </div>
 </div>
+<br>
+<button class="btn btn-action">Create token</button>
