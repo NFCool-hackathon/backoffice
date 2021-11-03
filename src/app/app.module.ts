@@ -11,6 +11,7 @@ import { AddTokenComponent } from './pages/modals/add-token/add-token.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DropzoneDirective} from "./shared/directives/dropzone.directive";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthComponent,
     HeaderComponent,
     TokensComponent,
-    AddTokenComponent
+    AddTokenComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,

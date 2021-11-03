@@ -7,6 +7,9 @@ import {MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./add-token.component.scss']
 })
 export class AddTokenComponent implements OnInit {
+  file: any;
+  loading: boolean = false;
+
   constructor(public dialogRef: MatDialogRef<AddTokenComponent>) { }
 
   ngOnInit(): void {
@@ -14,5 +17,18 @@ export class AddTokenComponent implements OnInit {
 
   closeDialog(): void {
     this.dialogRef.close();
+  }
+
+  onFileChange(event: Event): void{
+    // @ts-ignore
+    this.file = event.target.files[0];
+  }
+
+  deleteFile(): void {
+    this.file = null;
+  }
+
+  onFileDropped(file: any): void {
+    this.file = file;
   }
 }

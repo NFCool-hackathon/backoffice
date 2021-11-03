@@ -6,6 +6,11 @@
   transform: rotate(45deg);
 }
 
+.icon-svg-delete {
+  -webkit-mask: url(../assets/icons/delete.svg) no-repeat center;
+  mask: url(../assets/icons/delete.svg) no-repeat center;
+}
+
 
 //COLORS
 
