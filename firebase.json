@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/nfcool-backoffice",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

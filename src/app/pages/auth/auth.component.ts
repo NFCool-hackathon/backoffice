@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../core/auth/auth.service";
+import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,7 +7,6 @@ import {AuthService} from "../../core/auth/auth.service";
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -16,5 +15,4 @@ export class AuthComponent implements OnInit {
   connectWallet() {
     this.authService.connectMetamask();
   }
-
 }

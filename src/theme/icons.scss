@@ -1,39 +1,51 @@
-////Custom icons
-////
-////.icon-svg-profile {
-////  -webkit-mask: url(../assets/icons/user.svg) no-repeat center;
-////  mask: url(../assets/icons/user.svg) no-repeat center;
-////}
+//Custom icons
 //
-//
-////COLORS
-//
-//.icon-color-main {
-//  background-color: var(--color-icon-main);
-//}
-//
-//.icon-color-main-reverse {
-//  background-color: var(--color-icon-main-reverse);
-//}
-//
-//.icon-color-danger {
-//  background-color: var(--color-danger);
-//}
-//
-//
-////SIZES
-//
-//.icon-size-small{
-//  width: 15px;
-//  height: 15px;
-//}
-//
-//.icon-size-medium {
-//  width: 25px;
-//  height: 25px;
-//}
-//
-//.icon-size-large {
-//  width: 40px;
-//  height: 40px;
-//}
+.icon-svg-add {
+  -webkit-mask: url(../assets/icons/cross.svg) no-repeat center;
+  mask: url(../assets/icons/cross.svg) no-repeat center;
+  transform: rotate(45deg);
+}
+
+
+//COLORS
+
+.icon-color-main-lighter {
+  background-color: var(--color-main-ligher);
+}
+
+.icon-color-main {
+  background-color: var(--color-main);
+}
+
+.icon-color-main-darker {
+  background-color: var(--color-main-darker);
+}
+
+.icon-color-main-reverse {
+  background-color: var(--color-main-reverse);
+}
+
+.icon-color-danger {
+  background-color: var(--color-danger);
+}
+
+.icon-color-soft-danger {
+  background-color: var(--color-soft-danger);
+}
+
+//SIZES
+
+.icon-size-small{
+  width: 15px;
+  height: 15px;
+}
+
+.icon-size-medium {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-size-large {
+  width: 40px;
+  height: 40px;
+}

@@ -1,6 +1,7 @@
 @import 'theme/variables';
 @import 'theme/icons';
 @import 'theme/typography';
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 html, body {
   margin: 0;
@@ -34,4 +35,21 @@ html, body {
 
 .clickable {
   cursor: pointer;
+}
+
+.fab-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: var(--color-main-lighter);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: black 0 0 7px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
