@@ -31,4 +31,8 @@ export class SmartContractService {
     const url = await this.nftStorage.uploadMetadata(image);
     await this.contract.methods.mintToken(url, name, this.web3.utils.fromAscii('')).send({from: this._auth.account});
   }
+
+  public async createTokenUnit(tokenId: number, nfcId: string) {
+    await this.contract.methods.mintTokenUnit(tokenId, nfcId, this.web3.utils.fromAscii('')).send({from: this._auth.account});
+  }
 }

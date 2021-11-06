@@ -13,6 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DropzoneDirective} from "./shared/directives/dropzone.directive";
 import {FormsModule} from "@angular/forms";
+import { AddUnitComponent } from './pages/modals/add-unit/add-unit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     TokensComponent,
     AddTokenComponent,
-    DropzoneDirective
+    DropzoneDirective,
+    AddUnitComponent
   ],
   imports: [
     BrowserModule,

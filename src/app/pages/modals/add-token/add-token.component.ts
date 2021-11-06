@@ -42,7 +42,18 @@ export class AddTokenComponent implements OnInit {
       this.snackbar.openDanger('You need to fill all information');
       console.error('You need to fill all information');
     } else {
-      this.smartContract.createToken(this.tokenName, this.file);
+      this.loading = true;
+      this.smartContract.createToken(this.tokenName, this.file)
+        .then(() => {
+          this.loading = false;
+          this.snackbar.openSuccess('The token has successfully been minted');
+          this.closeDialog();
+        })
+        .catch(e => {
+          this.loading = false;
+          console.error(e);
+          this.snackbar.openDanger(e);
+        });
     }
   }
 }
