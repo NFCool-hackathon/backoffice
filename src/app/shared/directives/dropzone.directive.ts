@@ -1,23 +1,21 @@
-import {Directive, EventEmitter, HostBinding, HostListener, Output} from '@angular/core';
+import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 
 @Directive({
   selector: '[appDropzone]'
 })
 export class DropzoneDirective {
-
    @HostBinding('class.fileover') fileOver: boolean = false;
    @Output() fileDropped = new EventEmitter<any>();
 
-  constructor() { }
-
+   constructor() { }
 
   @HostListener('dragover', ['$event']) onDragOver(evt: { preventDefault: () => void; stopPropagation: () => void; }): void {
-    evt.preventDefault();
-    evt.stopPropagation();
-    this.fileOver = true;
+     evt.preventDefault();
+     evt.stopPropagation();
+     this.fileOver = true;
 
-    console.log('Drag Over');
-  }
+     console.log('Drag Over');
+   }
 
   @HostListener('dragleave', ['$event']) onDragLeave(evt: { preventDefault: () => void; stopPropagation: () => void; }): void {
     evt.preventDefault();
@@ -38,5 +36,4 @@ export class DropzoneDirective {
 
     console.log('Drop file');
   }
-
 }

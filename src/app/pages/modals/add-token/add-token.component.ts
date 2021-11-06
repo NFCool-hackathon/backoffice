@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
-import {SnackbarService} from "../../../core/snackbar.service";
-import {SmartContractService} from "../../../core/smart-contract.service";
+import { MatDialogRef } from '@angular/material/dialog';
+import { SnackbarService } from '../../../core/snackbar.service';
+import { SmartContractService } from '../../../core/smart-contract.service';
 
 @Component({
   selector: 'app-add-token',
@@ -24,7 +24,7 @@ export class AddTokenComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onFileChange(event: Event): void{
+  onFileChange(event: Event): void {
     // @ts-ignore
     this.file = event.target.files[0];
   }

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import {nftStorageKey} from "../../../keys";
+import { nftStorageKey } from '../../../keys';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NftStorageService {
-
   constructor() {
   }
 
@@ -13,7 +12,7 @@ export class NftStorageService {
     const response = await fetch('https://api.nft.storage/upload', {
       method: 'POST',
       body: file,
-      headers: {'Authorization': 'Bearer ' + nftStorageKey}
+      headers: { Authorization: 'Bearer ' + nftStorageKey }
     });
 
     const data = await response.json();

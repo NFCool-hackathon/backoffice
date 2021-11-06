@@ -11,8 +11,8 @@ import { AddTokenComponent } from './pages/modals/add-token/add-token.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DropzoneDirective} from "./shared/directives/dropzone.directive";
-import {FormsModule} from "@angular/forms";
+import { DropzoneDirective } from './shared/directives/dropzone.directive';
+import { FormsModule } from '@angular/forms';
 import { AddUnitComponent } from './pages/modals/add-unit/add-unit.component';
 
 @NgModule({

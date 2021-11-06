@@ -3,7 +3,7 @@ import { SmartContractService } from '../../core/smart-contract.service';
 import { TokenModel } from '../../models/token.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTokenComponent } from '../modals/add-token/add-token.component';
-import {AddUnitComponent} from "../modals/add-unit/add-unit.component";
+import { AddUnitComponent } from '../modals/add-unit/add-unit.component';
 
 @Component({
   selector: 'app-tokens',
@@ -29,7 +29,7 @@ export class TokensComponent implements OnInit {
 
   openAddUnitModal(id: number) {
     this.dialog.open(AddUnitComponent, {
-      data: id,
+      data: id
     });
   }
 }

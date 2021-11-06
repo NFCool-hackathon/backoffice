@@ -1,7 +1,7 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
-import {SmartContractService} from "../../../core/smart-contract.service";
-import {SnackbarService} from "../../../core/snackbar.service";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { Component, Inject, OnInit } from '@angular/core';
+import { SmartContractService } from '../../../core/smart-contract.service';
+import { SnackbarService } from '../../../core/snackbar.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-unit',
@@ -9,7 +9,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./add-unit.component.scss']
 })
 export class AddUnitComponent implements OnInit {
-
   loading = false;
   nfcId = '';
 
@@ -33,12 +32,11 @@ export class AddUnitComponent implements OnInit {
         this.loading = false;
         this.closeDialog();
       })
-      .catch(e => {
-        this.loading = false;
-        console.error(e);
-        this.snackbar.openDanger(e);
-      });
+        .catch(e => {
+          this.loading = false;
+          console.error(e);
+          this.snackbar.openDanger(e);
+        });
     }
   }
-
 }
