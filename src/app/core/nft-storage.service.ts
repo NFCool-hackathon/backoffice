@@ -19,6 +19,6 @@ export class NftStorageService {
     const data = await response.json();
     console.log(data);
 
-    return 'ipfs://' + data.value.cid;
+    return 'https://' + data.value.cid + '.ipfs.dweb.link';
   }
 }

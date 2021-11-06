@@ -1,4 +1,9 @@
 <div class="full-content">
+  <div class="tokens">
+    <div class="token" *ngFor="let token of tokens">
+      <div class="card-image clickable" style="background-image: url('{{token.uri}}')">
+    </div>
+  </div>
   <div class="fab-btn bottom-right clickable" (click)="openModal()">
     <div class="icon-size-small icon-color-main-reverse icon-svg-add"></div>
   </div>

@@ -1,0 +1,54 @@
+.tokens {
+  margin: auto;
+  padding: 20px;
+  background-color: var(--color-bg-layer2);
+  border-radius: 30px;
+
+  width: 95%;
+  max-width: 780px;
+  height: auto;
+  grid-gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+
+  .token {
+    width: 250px;
+    height: 300px;
+    border-radius: 15px;
+    background-color: black;
+    transition: 0.4s;
+
+    .card-image {
+      background-position: center;
+      background-size: cover;
+
+      border-radius: 15px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .card-image:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .token:hover {
+    margin-left: -7px;
+    margin-top: -8px;
+    width: calc(250px * 1.05);
+    height: calc(300px * 1.05);
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  .cards-grid {
+    max-width: 515px !important;
+  }
+}
+
+@media only screen and (max-width: 726px) {
+  .cards-grid {
+    padding: 20px 0;
+    max-width: 250px !important;
+  }
+}

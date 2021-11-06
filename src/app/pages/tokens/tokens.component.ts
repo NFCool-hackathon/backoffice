@@ -18,6 +18,7 @@ export class TokensComponent implements OnInit {
   ngOnInit(): void {
     this.sc.getAllTokens().then(res => {
       this.tokens = res;
+      console.log(this.tokens);
     });
   }
 
