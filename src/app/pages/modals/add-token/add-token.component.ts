@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
 import {SnackbarService} from "../../../core/snackbar.service";
+import {SmartContractService} from "../../../core/smart-contract.service";
 
 @Component({
   selector: 'app-add-token',
@@ -13,7 +14,8 @@ export class AddTokenComponent implements OnInit {
   loading: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<AddTokenComponent>,
-              private snackbar: SnackbarService) { }
+              private snackbar: SnackbarService,
+              private smartContract: SmartContractService) { }
 
   ngOnInit(): void {
   }
@@ -40,6 +42,7 @@ export class AddTokenComponent implements OnInit {
       this.snackbar.openDanger('You need to fill all information');
       console.error('You need to fill all information');
     } else {
+      this.smartContract.createToken(this.tokenName, this.file);
     }
   }
 }
