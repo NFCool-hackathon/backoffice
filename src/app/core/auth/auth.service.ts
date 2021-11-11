@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 // @ts-ignore
 import Web3 from 'web3';
-import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import {SmartContractService} from "../smart-contract.service";
-import {AuthStore} from "./auth.store";
+import { SmartContractService } from '../smart-contract.service';
+import { AuthStore } from './auth.store';
 
 declare let window: any;
 

@@ -4,10 +4,9 @@ import Web3 from 'web3';
 
 // @ts-ignore
 import contractABI from '../../assets/abi/NFCool.json';
-import { AuthService } from './auth/auth.service';
 import { TokenModel } from '../models/token.model';
 import { NftStorageService } from './nft-storage.service';
-import {AuthStore} from "./auth/auth.store";
+import { AuthStore } from './auth/auth.store';
 
 const keccak256 = require('keccak256')
 
