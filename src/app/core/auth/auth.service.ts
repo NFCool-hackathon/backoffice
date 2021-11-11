@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import Web3 from 'web3';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import {SmartContractService} from "../smart-contract.service";
+import {AuthStore} from "./auth.store";
 
 declare let window: any;
 
@@ -10,17 +12,15 @@ declare let window: any;
   providedIn: 'root'
 })
 export class AuthService {
-  public accountSubject = new Subject<string>();
-  public account = '';
-  public account$ = this.accountSubject.asObservable();
-
   private ethereum = window.ethereum;
 
   constructor(private web3: Web3,
-              private router: Router) {}
+              private router: Router,
+              private smartcontract: SmartContractService,
+              private authStore: AuthStore) {}
 
   get isAuth(): boolean {
-    return this.account !== '';
+    return this.authStore.account !== '';
   }
 
   public init(): void {
@@ -28,9 +28,7 @@ export class AuthService {
     if (this.checkMetamask()) {
       this.ethereum.request({ method: 'eth_accounts' }).then((res: any) => {
         if (res[0]) {
-          this.account = res[0];
-          this.accountSubject.next(this.account);
-          this.router.navigate(['/']);
+          this.verifyAndAppendAccount(res[0]);
         }
       });
     }
@@ -40,9 +38,7 @@ export class AuthService {
     if (this.checkMetamask()) {
       this.ethereum.request({ method: 'eth_requestAccounts' }).then((res: any) => {
         if (res[0]) {
-          this.account = res[0];
-          this.accountSubject.next(this.account);
-          this.router.navigate(['/']);
+          this.verifyAndAppendAccount(res[0]);
         }
       });
     }
@@ -54,8 +50,8 @@ export class AuthService {
       // eslint-disable-next-line @typescript-eslint/naming-convention
       params: [{ eth_accounts: {} }]
     }).then(() => {
-      this.account = '';
-      this.accountSubject.next(this.account);
+      this.authStore.account = '';
+      this.authStore.accountSubject.next(this.authStore.account);
       this.router.navigate(['/login']);
     });
   }
@@ -68,6 +64,22 @@ export class AuthService {
     } else {
       console.error('[AUTH] - METAMASK is not installed');
       return false;
+    }
+  }
+
+  private async verifyAndAppendAccount(account: string) {
+    if (account) {
+      const isMinter = await this.smartcontract.isMinter(account);
+      if (isMinter) {
+        console.log('[AUTH] Account is minter');
+        this.authStore.account = account;
+        this.authStore.accountSubject.next(account);
+        this.router.navigate(['/']);
+        console.log('[AUTH] METAMASK connected with account ' + account);
+      } else {
+        console.error('[AUTH] Account is not minter');
+        alert('You\'re not the minter of the contract');
+      }
     }
   }
 }
