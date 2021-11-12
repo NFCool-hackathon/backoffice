@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { nftStorageKey } from '../../../keys';
+import {nftStorageKey} from "../../../keys";
 
 @Injectable({
   providedIn: 'root'
