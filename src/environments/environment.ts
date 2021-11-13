@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  chainId: 80001,
-  chainSymbol: 'MATIC',
-  contractAddress: '0x1441D393DedF2aB832125fbDEB73E0033B498961'
+  chainId: 42,
+  chainSymbol: 'ETH',
+  contractAddress: '0xA5284665954a54d12737Da405824160cCE05B0B0'
 };
