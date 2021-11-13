@@ -25,7 +25,7 @@ export class AddUnitComponent implements OnInit {
   }
 
   createTokenUnit(): void {
-    if (this.tokenId) {
+    if (this.tokenId >= 0) {
       this.loading = true;
       this.smartContract.createTokenUnit(this.tokenId, this.nfcId).then(() => {
         this.snackbar.openSuccess('The unit has been minted');
