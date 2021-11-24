@@ -12,6 +12,7 @@ html, body {
   width: 100%;
   height: 100vh;
   background-color: var(--color-bg-layer1);
+  box-sizing: border-box;
 }
 
 .btn {

@@ -13,18 +13,30 @@ import { AddUnitComponent } from '../modals/add-unit/add-unit.component';
 export class TokensComponent implements OnInit {
   tokens: TokenModel[] = [];
 
+  brandName: string = '';
+
   constructor(private sc: SmartContractService,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.initTokens();
+  }
+
+  initTokens(): void {
     this.sc.getAllTokens().then(res => {
       this.tokens = res;
       console.log(this.tokens);
     });
+
+    this.sc.getBrandName().then(name => {
+      this.brandName = name;
+    });
   }
 
   openModal() {
-    this.dialog.open(AddTokenComponent);
+    this.dialog.open(AddTokenComponent).afterClosed().subscribe(() => {
+      this.initTokens();
+    });
   }
 
   openAddUnitModal(id: number) {

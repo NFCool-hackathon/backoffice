@@ -24,10 +24,24 @@ export class SmartContractService {
     return await this.contract.methods.hasRole(keccak256('MINTER_ROLE'), account).call();
   }
 
-  public async getAllTokens(): Promise<TokenModel[]> {
-    const tokens = await this.contract.methods.getAllTokens().call();
+  public async getBrandName(): Promise<string> {
+    return await this.contract.methods.getBrandName().call();
+  }
 
-    return tokens as TokenModel[];
+  public async getToken(id: number): Promise<TokenModel> {
+    return await this.contract.methods.tokenData(id).call();
+  }
+
+  public async getAllTokens(): Promise<TokenModel[]> {
+    const tokensCount: number = await this.contract.methods.getTokensCount().call();
+    const tokens: TokenModel[] = [];
+
+    for (let i = 0 ; i < tokensCount ; i++) {
+      const token: TokenModel = await this.getToken(i);
+      tokens.push(token);
+    }
+
+    return tokens;
   }
 
   public async createToken(name: string, image: File) {

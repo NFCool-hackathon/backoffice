@@ -1,4 +1,8 @@
 <div class="full-content">
+  <div class="titles">
+    <h1>Items</h1>
+    <h1>{{brandName}}</h1>
+  </div>
   <div class="tokens">
     <div class="token" *ngFor="let token of tokens; let id = index">
       <div class="card-image clickable" (click)="openAddUnitModal(id)" style="background-image: url('{{token.uri}}')">
