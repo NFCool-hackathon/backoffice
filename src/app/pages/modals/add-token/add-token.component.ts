@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { SnackbarService } from '../../../core/snackbar.service';
 import { SmartContractService } from '../../../core/smart-contract.service';
+import {LoadingService} from "../../../core/loading.service";
 
 @Component({
   selector: 'app-add-token',
@@ -11,11 +12,11 @@ import { SmartContractService } from '../../../core/smart-contract.service';
 export class AddTokenComponent implements OnInit {
   file: any;
   tokenName: string = '';
-  loading: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<AddTokenComponent>,
               private snackbar: SnackbarService,
-              private smartContract: SmartContractService) { }
+              private smartContract: SmartContractService,
+              private loadingService: LoadingService) { }
 
   ngOnInit(): void {
   }
@@ -42,15 +43,15 @@ export class AddTokenComponent implements OnInit {
       this.snackbar.openDanger('You need to fill all information');
       console.error('You need to fill all information');
     } else {
-      this.loading = true;
+      this.loadingService.startLoading();
       this.smartContract.createToken(this.tokenName, this.file)
         .then(() => {
-          this.loading = false;
+          this.loadingService.stopLoading();
           this.snackbar.openSuccess('The token has successfully been minted');
           this.closeDialog();
         })
         .catch(e => {
-          this.loading = false;
+          this.loadingService.stopLoading();
           console.error(e);
           this.snackbar.openDanger(e);
         });

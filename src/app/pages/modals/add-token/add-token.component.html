@@ -1,4 +1,4 @@
-<input type="text" placeholder="Token name..." [(ngModel)]="tokenName" [disabled]="loading" class="input">
+<input type="text" placeholder="Token name..." [(ngModel)]="tokenName" class="input">
 <br>
 <div class="image-upload">
   <label for="image" *ngIf="!file?.name" appDropzone (fileDropped)="onFileDropped($event)">
@@ -12,7 +12,6 @@
     </div>
   </label>
   <input type="file"
-         [disabled]="loading"
          name="image"
          id="image"
          (change)="onFileChange($event)"

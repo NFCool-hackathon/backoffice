@@ -17,6 +17,8 @@ import { AddUnitComponent } from './pages/modals/add-unit/add-unit.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
 import {firebaseConfig} from "../environments/firebase.config";
+import {LoadingComponent} from "./pages/modals/loading/loading.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {firebaseConfig} from "../environments/firebase.config";
     TokensComponent,
     AddTokenComponent,
     DropzoneDirective,
-    AddUnitComponent
+    AddUnitComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import {firebaseConfig} from "../environments/firebase.config";
     BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireFunctionsModule
+    AngularFireFunctionsModule,
+    MatProgressSpinnerModule
   ],
   providers: [Web3],
   bootstrap: [AppComponent]

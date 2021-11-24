@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { SmartContractService } from '../../../core/smart-contract.service';
 import { SnackbarService } from '../../../core/snackbar.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {LoadingService} from "../../../core/loading.service";
 
 @Component({
   selector: 'app-add-unit',
@@ -9,12 +10,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-unit.component.scss']
 })
 export class AddUnitComponent implements OnInit {
-  loading = false;
   nfcId = '';
 
   constructor(public dialogRef: MatDialogRef<AddUnitComponent>,
               @Inject(MAT_DIALOG_DATA) public tokenId: number,
               private smartContract: SmartContractService,
+              private loadingService: LoadingService,
               private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
@@ -26,14 +27,14 @@ export class AddUnitComponent implements OnInit {
 
   createTokenUnit(): void {
     if (this.tokenId >= 0) {
-      this.loading = true;
+      this.loadingService.startLoading();
       this.smartContract.createTokenUnit(this.tokenId, this.nfcId).then(() => {
         this.snackbar.openSuccess('The unit has been minted');
-        this.loading = false;
+        this.loadingService.stopLoading();
         this.closeDialog();
       })
         .catch(e => {
-          this.loading = false;
+          this.loadingService.stopLoading();
           console.error(e);
           this.snackbar.openDanger(e);
         });
