@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropzoneDirective } from './shared/directives/dropzone.directive';
 import { FormsModule } from '@angular/forms';
 import { AddUnitComponent } from './pages/modals/add-unit/add-unit.component';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
+import {firebaseConfig} from "../environments/firebase.config";
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { AddUnitComponent } from './pages/modals/add-unit/add-unit.component';
     MatSnackBarModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireFunctionsModule
   ],
   providers: [Web3],
   bootstrap: [AppComponent]

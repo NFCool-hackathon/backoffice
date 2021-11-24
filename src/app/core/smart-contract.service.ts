@@ -8,7 +8,7 @@ import { TokenModel } from '../models/token.model';
 import { NftStorageService } from './nft-storage.service';
 import { AuthStore } from './auth/auth.store';
 
-const keccak256 = require('keccak256')
+import * as keccak256 from 'keccak256';
 
 @Injectable({
   providedIn: 'root'
