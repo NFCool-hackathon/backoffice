@@ -52,4 +52,12 @@ export class SmartContractService {
   public async createTokenUnit(tokenId: number, nfcId: string) {
     await this.contract.methods.mintTokenUnit(tokenId, nfcId, this.web3.utils.fromAscii('')).send({ from: this.authStore.account });
   }
+
+  public async grantRole(role: string, account: string): Promise<void> {
+    return await this.contract.methods.grantRole(keccak256(role), account).send({from: this.authStore.account});
+  }
+
+  public async revokeRole(role: string, account: string): Promise<void> {
+    return await this.contract.methods.revokeRole(keccak256(role), account).send({from: this.authStore.account});
+  }
 }

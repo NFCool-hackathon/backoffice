@@ -1,0 +1,36 @@
+.full-content {
+  padding: 20px;
+}
+
+.titles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  .role {
+    width: 45%;
+    max-width: 400px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: var(--color-bg-layer2);
+
+    select {
+      background-color: var(--color-bg-layer1);
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    input {
+      background-color: var(--color-bg-layer1);
+      margin-bottom: 50px;
+    }
+  }
+}

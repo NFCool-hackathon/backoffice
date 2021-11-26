@@ -76,3 +76,18 @@ a, li, ul {
   bottom: 10px;
   right: 10px;
 }
+
+select {
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  border-radius: 15px;
+  padding-left: 20px;
+  transition: all .3s;
+  color: var(--color-main-darker);
+
+  border: 3px solid transparent!important;
+  background-color: var(--color-bg-layer2);
+  font-size: 1.25em;
+  outline: none;
+}

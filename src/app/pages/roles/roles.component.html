@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="full-content">
+  <div class="titles">
+    <h1>Roles</h1>
+    <h1>{{brandName}}</h1>
+  </div>
+  <div class="content">
+    <div class="role">
+      <select [(ngModel)]="giveRole.role" name="give-role" id="give-role">
+        <option value="{{role.role}}" *ngFor="let role of roleOptions">{{role.display}}</option>
+      </select>
+      <input type="text" placeholder="Account address..." [(ngModel)]="giveRole.to" class="input">
+      <button class="btn btn-action" (click)="giveRoleToAccount()">Give Role</button>
+    </div>
+    <div class="role">
+      <select [(ngModel)]="revokeRole.role" name="give-role" id="revoke-role">
+        <option value="{{role.role}}" *ngFor="let role of roleOptions">{{role.display}}</option>
+      </select>
+      <input type="text" placeholder="Account address..." [(ngModel)]="revokeRole.to" class="input">
+      <button class="btn btn-action" (click)="revokeRoleToAccount()">Revoke Role</button>
+    </div>
+  </div>
+</div>

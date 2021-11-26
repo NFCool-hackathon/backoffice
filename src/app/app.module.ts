@@ -19,6 +19,7 @@ import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
 import {firebaseConfig} from "../environments/firebase.config";
 import {LoadingComponent} from "./pages/modals/loading/loading.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { RolesComponent } from './pages/roles/roles.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     AddTokenComponent,
     DropzoneDirective,
     AddUnitComponent,
-    LoadingComponent
+    LoadingComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule,
