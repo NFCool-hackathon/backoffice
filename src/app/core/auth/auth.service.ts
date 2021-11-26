@@ -68,16 +68,17 @@ export class AuthService {
 
   private async verifyAndAppendAccount(account: string) {
     if (account) {
-      const isMinter = await this.smartcontract.isMinter(account);
-      if (isMinter) {
+      this.authStore.isMinter = await this.smartcontract.isMinter(account);
+      this.authStore.isAdmin = await this.smartcontract.isAdmin(account);
+      if (this.authStore.isMinter || this.authStore.isAdmin) {
         console.log('[AUTH] Account is minter');
         this.authStore.account = account;
         this.authStore.accountSubject.next(account);
         this.router.navigate(['/']);
         console.log('[AUTH] METAMASK connected with account ' + account);
       } else {
-        console.error('[AUTH] Account is not minter');
-        alert('You\'re not the minter of the contract');
+        console.error('[AUTH] Account is not minter or Admin');
+        alert('You\'re not minter or admin of the contract');
       }
     }
   }

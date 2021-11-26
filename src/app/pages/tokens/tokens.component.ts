@@ -4,6 +4,8 @@ import { TokenModel } from '../../models/token.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTokenComponent } from '../modals/add-token/add-token.component';
 import { AddUnitComponent } from '../modals/add-unit/add-unit.component';
+import firebase from "firebase/compat";
+import {AuthStore} from "../../core/auth/auth.store";
 
 @Component({
   selector: 'app-tokens',
@@ -15,7 +17,10 @@ export class TokensComponent implements OnInit {
 
   brandName: string = '';
 
+  isMinter = false;
+
   constructor(private sc: SmartContractService,
+              private authStore: AuthStore,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -31,6 +36,8 @@ export class TokensComponent implements OnInit {
     this.sc.getBrandName().then(name => {
       this.brandName = name;
     });
+
+    this.isMinter = this.authStore.isMinter;
   }
 
   openModal() {

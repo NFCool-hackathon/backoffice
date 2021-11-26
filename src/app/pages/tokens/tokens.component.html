@@ -4,12 +4,13 @@
     <h1>Items</h1>
     <h1>{{brandName}}</h1>
   </div>
-  <div class="tokens">
+  <div class="tokens" *ngIf="isMinter">
     <div class="token" *ngFor="let token of tokens; let id = index">
       <div class="card-image clickable" (click)="openAddUnitModal(id)" style="background-image: url('{{token.uri}}')"></div>
     </div>
   </div>
-  <div class="fab-btn bottom-right clickable" (click)="openModal()">
+  <div class="fab-btn bottom-right clickable" (click)="openModal()" *ngIf="isMinter">
     <div class="icon-size-small icon-color-main-reverse icon-svg-add"></div>
   </div>
+  <p *ngIf="!isMinter">You need to have minter role to access this page</p>
 </div>

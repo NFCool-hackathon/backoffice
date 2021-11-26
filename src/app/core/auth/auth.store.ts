@@ -9,6 +9,9 @@ export class AuthStore {
   public account = '';
   public account$ = this.accountSubject.asObservable();
 
+  public isAdmin: boolean = false;
+  public isMinter: boolean = false;
+
   constructor() {
   }
 }

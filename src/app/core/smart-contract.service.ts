@@ -24,6 +24,10 @@ export class SmartContractService {
     return await this.contract.methods.hasRole(keccak256('MINTER_ROLE'), account).call();
   }
 
+  public async isAdmin(account: string) {
+    return await this.contract.methods.hasRole(('0x00'), account).call();
+  }
+
   public async getBrandName(): Promise<string> {
     return await this.contract.methods.getBrandName().call();
   }

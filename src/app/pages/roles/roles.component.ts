@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SmartContractService} from "../../core/smart-contract.service";
 import {SnackbarService} from "../../core/snackbar.service";
+import {AuthStore} from "../../core/auth/auth.store";
 
 export interface Role {
   to: string,
@@ -28,13 +29,18 @@ export class RolesComponent implements OnInit {
 
   brandName = '';
 
+  isAdmin = false;
+
   constructor(private sc: SmartContractService,
+              private authStore: AuthStore,
               private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
     this.sc.getBrandName().then(name => {
       this.brandName = name;
     });
+
+    this.isAdmin = this.authStore.isAdmin;
   }
 
   giveRoleToAccount() {
