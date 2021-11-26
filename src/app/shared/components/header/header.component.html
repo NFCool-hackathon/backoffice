@@ -4,6 +4,8 @@
     <h2>BackOffice</h2>
   </div>
   <ul class="nav">
-    <li *ngFor="let page of pages">page</li>
+    <li [class.active]="actualRoute == page.route" *ngFor="let page of pages" routerLink="{{page.route}}">
+      <a>{{page.title}}</a>
+    </li>
   </ul>
 </div>

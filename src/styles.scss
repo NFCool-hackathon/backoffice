@@ -9,9 +9,16 @@ html, body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+a, li, ul {
+  all: initial;
+  * {
+    all: unset;
+  }
+}
+
 .full-content {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - var(--header-height));
   background-color: var(--color-bg-layer1);
   box-sizing: border-box;
 }

@@ -1,0 +1,50 @@
+.header {
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 20px;
+  box-sizing: border-box;
+  background-color: var(--color-main-really-lighter);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    color: var(--color-main-reverse);
+
+    h1 {
+      margin: 0;
+      font-size: 1em;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 0.8em;
+    }
+  }
+
+  .nav {
+    width: 50%;
+    height: 100%;
+    display: flex;
+
+    li {
+      cursor: pointer;
+      color: white;
+      height: 100%;
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    li:hover {
+      background-color: var(--color-main-lighter);
+    }
+
+    .active {
+      background-color: var(--color-main);
+    }
+  }
+}
+
