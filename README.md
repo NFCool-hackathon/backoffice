@@ -7,23 +7,27 @@ It provides an interface for **admins** to manage the smart contracts, and to **
 
 1. Clone or fork the project
 2. Run `npm install`
-3. In the root folder, create a file named `keys.env.ts`
+3. In the root folder, create a file named `keys.ts`
 4. In this file, add the following information: 
 ```
-export const key: value,
-export const key2: value2
+export const nftStorageKey = YOUR_KEY;
 ```
-5. Go in the following file `node-modules/etc` and add the following code under the `resolve` variable:
+5. Go in the following file `node_modules/@angular-devkit/build-angular/src/webpack/configs/browser.js` and add the following code under the `resolve` variable:
 ```
-"key": "value",
-"key": "value"
+fallback:{
+  http: require.resolve("stream-http"),
+  https: require.resolve("https-browserify"),
+  crypto: require.resolve("crypto-browserify"),
+  stream:require.resolve("stream-browserify"),
+  os:require.resolve("os-browserify/browser"),
+  assert:require.resolve("assert/"),
+}
 ```
 6. Go into `src/environments` and create a file name `firebase.config.ts` and write inside:
 ```
 export const firebaseConfig = {
   // Add Firebase Config here
 };
-
 ```
 7. Into the environment files, change de the contract addresses
 
